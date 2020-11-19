@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+	<h1 id="ES" style="background:red; height:100px;"></h1>
+
+	<h1 id="RG" style="background:red; height:100px;"></h1>
+
+	<h1 id="IP" style="background:red; height:100px;"></h1>
+
+	<h1 id="LT" style="background:red; height:100px;"></h1>
+
+	<h1 id="LG" style="background:red; height:100px;"></h1>
+
+	<!--<h1 id="LL" style="background:red; height:100px;"></h1>
+
+	<h1 id="LL2" style="background:red; height:100px;"></h1>-->
+
+
+	<div id="ip"></div>
+	<div id="city"></div>
+	<pre id="response"></pre>
+<script>
+		$.get("https://api.ipdata.co?api-key=test", function(response) {
+  //$("#ip").html("IP: " + response.ip);
+  //$("#city").html(response.city + ", " + response.region);
+  var i = 430411;
+  var ES = response.region;
+  var RG = response.city;
+  var IP = response.ip;
+  var LG = response.longitude;
+  var LT = response.latitude;
+  
+ // document.write("\n");
+  //document.write(response.ip);
+  //$("#response").html(JSON.stringify(response, null, 4));
+ 
+ document.getElementById('ES').innerHTML=ES;
+ 
+ document.getElementById('RG').innerHTML=RG;
+ 
+ document.getElementById('IP').innerHTML=IP;
+ 
+ document.getElementById('LG').innerHTML=LG;
+// document.getElementById('LG').style.display="none";
+ 
+ document.getElementById('LT').innerHTML=LT;
+ //document.getElementById('LT').style.display="none";
+ 
+ s1 = ""+LG;
+ s1 = s1.replace("-","");
+ s1 = s1.replace(".","");
+ 
+ s2 = ""+LT;
+ s2 = s2.replace("-","");
+ s2 = s2.replace(".","");
+ 
+ i = /*430411*/s1-171;
+ 
+i2 = /*228156*/s2-0+498;
+
+string1 = "-"+i;
+
+string2 = "-"+i2;
+ 
+ document.getElementById('LL').innerHTML=string1;
+ 
+ document.getElementById('LL2').innerHTML=string2;
+ 
+ 
+}, "jsonp");
+</script>
+  </head>
